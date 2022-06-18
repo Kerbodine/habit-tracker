@@ -71,7 +71,12 @@ const Dashboard = () => {
               <div className="flex flex-wrap gap-4">
                 {userHabits.map((habit, i) => {
                   return (
-                    <HabitCard key={i} title={habit.title} date={habit.date} />
+                    <HabitCard
+                      key={i}
+                      title={habit.title}
+                      date={habit.date}
+                      id={habit.id}
+                    />
                   );
                 })}
                 <HabitButton />

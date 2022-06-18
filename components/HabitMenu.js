@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { BiLogOut } from "react-icons/bi";
-import { useAuth } from "../contexts/AuthContext";
+import { BiDotsVerticalRounded, BiTrash } from "react-icons/bi";
+import { useHabit } from "../contexts/HabitContext";
 
-export default function AccountMenu() {
-  const { user, logout } = useAuth();
+export default function HabitMenu({ id }) {
+  const { deleteHabit } = useHabit();
 
   return (
-    <Menu as="div" className="group relative">
+    <Menu as="div" className="relative">
       <div>
-        <Menu.Button className="grid h-10 w-10 place-items-center rounded-lg bg-gray-100 text-xl font-semibold text-gray-600 transition-colors group-hover:bg-accent group-hover:text-white">
-          {user.displayName[0]}
+        <Menu.Button className="grid h-8 w-8 place-items-center rounded-lg text-2xl text-gray-600 transition-all hover:bg-gray-200">
+          <BiDotsVerticalRounded />
         </Menu.Button>
       </div>
       <Transition
@@ -22,20 +22,20 @@ export default function AccountMenu() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-1.5 w-40 origin-top-right divide-gray-200 rounded-lg border-2 border-gray-200 bg-white p-1.5 shadow-md focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 mt-1.5 w-28 origin-top-right divide-gray-200 rounded-lg border-2 border-gray-200 bg-white p-1.5 shadow-md focus:outline-none">
           <Menu.Item>
             {({ active }) => (
               <div
                 className={`${
                   active && "bg-gray-100"
                 } group flex w-full cursor-pointer items-center rounded-md px-1.5 py-1.5 text-sm font-medium text-gray-700`}
-                onClick={logout}
+                onClick={() => deleteHabit(id)}
               >
                 <>
                   <span className="mr-1 text-2xl">
-                    <BiLogOut />
+                    <BiTrash />
                   </span>
-                  Logout
+                  Delete
                 </>
               </div>
             )}

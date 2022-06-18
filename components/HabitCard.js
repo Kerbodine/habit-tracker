@@ -1,14 +1,20 @@
 import React from "react";
-import { BiStop } from "react-icons/bi";
+import { BiDotsVerticalRounded, BiStop } from "react-icons/bi";
+import HabitMenu from "./HabitMenu";
 
-export default function HabitCard({ title, date }) {
+export default function HabitCard({ id, title, date }) {
   let startDate = new Date(date);
   let dateDif =
     (startDate.getTime() - new Date().getTime()) / (1000 * 3600 * 24 * -1); // negate date
 
   return (
-    <div className="relative h-36 w-48 flex-none rounded-lg border-2 border-gray-200 p-4">
-      <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
+    <div className="group relative h-36 w-48 flex-none cursor-pointer rounded-lg border-2 border-gray-200 transition-all duration-300 hover:border-gray-400 hover:bg-gray-100 hover:shadow-lg">
+      <h2 className="absolute top-3 left-4 text-xl font-semibold tracking-tight">
+        {title}
+      </h2>
+      <div className="absolute right-2 top-2 hidden group-hover:block">
+        <HabitMenu id={id} />
+      </div>
       <div className="absolute left-3 bottom-3 z-10 flex gap-3">
         <button className="grid h-8 w-8 place-items-center rounded-full bg-gray-200 bg-opacity-50 text-2xl text-gray-400 transition-colors hover:bg-accent hover:text-white">
           <BiStop />
