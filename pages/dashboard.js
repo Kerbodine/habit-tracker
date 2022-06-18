@@ -12,6 +12,7 @@ import Loader from "../components/Loader";
 import HabitCard from "../components/HabitCard";
 import { BiCog, BiPlus } from "react-icons/bi";
 import HabitButton from "../components/HabitButton";
+import AccountMenu from "../components/AccountMenu";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -49,14 +50,6 @@ const Dashboard = () => {
     };
   }, []);
 
-  const addHabit = async (habit) => {
-    try {
-      await setDoc(doc(db, "Users", user.uid, "Streaks", habit.id), habit);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   return (
     <div className="h-screen w-screen overflow-hidden">
       {loading ? (
@@ -71,15 +64,13 @@ const Dashboard = () => {
                 <button className="grid h-10 w-10 place-items-center rounded-full text-2xl text-gray-600 transition-colors hover:bg-gray-100">
                   <BiCog />
                 </button>
-                <button className="grid h-10 w-10 place-items-center rounded-full border-2 border-gray-200 bg-gray-100 text-xl font-semibold text-gray-600">
-                  {user.displayName[0]}
-                </button>
+                <AccountMenu />
               </div>
             </div>
             <div className="h-auto w-full p-6">
               <div className="flex gap-4">
                 {userHabits.map((habit, i) => {
-                  return <HabitCard key={i} />;
+                  return <HabitCard key={i} title={habit.title} />;
                 })}
                 <HabitButton />
               </div>

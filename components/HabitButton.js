@@ -71,11 +71,11 @@ export default function HabitButton() {
                   as="h3"
                   className="mt-1 text-xl font-medium leading-6"
                 >
-                  New List
+                  New Habit
                 </Dialog.Title>
                 <input
                   className="mt-4 w-full rounded-lg border-2 border-gray-200 px-2 py-1.5 outline-none"
-                  placeholder="Habit name"
+                  placeholder="Title"
                   value={habitTitle}
                   onChange={(e) => setHabitTitle(e.target.value)}
                 />
@@ -83,9 +83,9 @@ export default function HabitButton() {
                   type="submit"
                   onClick={createHabit}
                   {...(!habitTitle && { disabled: true })}
-                  className="hover:border-accent hover:bg-accent mt-4 w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-white disabled:cursor-not-allowed"
+                  className="mt-4 w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:border-accent hover:bg-accent hover:text-white disabled:cursor-not-allowed"
                 >
-                  Create list
+                  Add Habit
                 </button>
                 <button
                   type="button"
