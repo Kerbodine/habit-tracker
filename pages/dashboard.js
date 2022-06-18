@@ -11,6 +11,7 @@ import { app } from "../config/firebase";
 import Loader from "../components/Loader";
 import HabitCard from "../components/HabitCard";
 import { BiCog, BiPlus } from "react-icons/bi";
+import HabitButton from "../components/HabitButton";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -48,6 +49,14 @@ const Dashboard = () => {
     };
   }, []);
 
+  const addHabit = async (habit) => {
+    try {
+      await setDoc(doc(db, "Users", user.uid, "Streaks", habit.id), habit);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="h-screen w-screen overflow-hidden">
       {loading ? (
@@ -72,9 +81,7 @@ const Dashboard = () => {
                 {userHabits.map((habit, i) => {
                   return <HabitCard key={i} />;
                 })}
-                <button className="grid h-36 w-48 place-items-center rounded-lg border-2 border-dashed border-gray-200 text-2xl text-gray-600 transition-all hover:border-solid hover:bg-gray-100">
-                  <BiPlus />
-                </button>
+                <HabitButton />
               </div>
             </div>
           </div>

@@ -4,6 +4,7 @@ import AuthRoute from "../auth/AuthRoute";
 import Layout from "../components/Layout";
 import { AuthProvider } from "../contexts/AuthContext";
 import "../styles/globals.css";
+import { HabitProvider } from "../contexts/HabitContext";
 
 const publicPages = ["/", "/login", "/signup", "/reset-password"];
 const authPages = ["/login", "/signup", "/reset-password"];
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }) {
         )
       ) : (
         <PrivateRoute>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <HabitProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </HabitProvider>
         </PrivateRoute>
       )}
     </AuthProvider>
