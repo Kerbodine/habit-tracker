@@ -68,7 +68,7 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="h-auto w-full p-6">
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {userHabits.map((habit, i) => {
                   return <HabitCard key={i} title={habit.title} />;
                 })}
