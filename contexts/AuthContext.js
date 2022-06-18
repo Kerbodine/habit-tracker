@@ -23,6 +23,8 @@ export const AuthProvider = ({ children }) => {
   const db = getFirestore(app);
 
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [userHabits, setUserHabits] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -94,6 +96,10 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        userData,
+        setUserData,
+        userHabits,
+        setUserHabits,
         login,
         signup,
         resetPassword,
