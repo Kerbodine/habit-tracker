@@ -6,6 +6,7 @@ import { useHabit } from "../contexts/HabitContext";
 export default function HabitButton() {
   const [modalOpen, setModalOpen] = useState(false);
   const [habitTitle, setHabitTitle] = useState("");
+  const [habitDate, setHabitDate] = useState(null);
 
   const { newHabit } = useHabit();
 
@@ -21,7 +22,8 @@ export default function HabitButton() {
     e.preventDefault();
     closeModal();
     setHabitTitle("");
-    newHabit({ title: habitTitle });
+    setHabitDate(null);
+    newHabit({ title: habitTitle, date: habitDate });
   };
 
   return (
@@ -73,17 +75,25 @@ export default function HabitButton() {
                 >
                   New Habit
                 </Dialog.Title>
-                <input
-                  className="mt-4 w-full rounded-lg border-2 border-gray-200 px-2 py-1.5 outline-none"
-                  placeholder="Title"
-                  value={habitTitle}
-                  onChange={(e) => setHabitTitle(e.target.value)}
-                />
+                <div className="my-4 divide-y-2 divide-gray-200 overflow-hidden rounded-lg border-2 border-gray-200">
+                  <input
+                    className="w-full px-2 py-1.5 outline-none"
+                    placeholder="Title"
+                    value={habitTitle}
+                    onChange={(e) => setHabitTitle(e.target.value)}
+                  />
+                  <input
+                    type="date"
+                    value={habitDate}
+                    onChange={(e) => setHabitDate(e.target.value)}
+                    className="w-full px-2 py-1.5 font-mono tracking-tight text-gray-600 outline-none"
+                  />
+                </div>
                 <button
                   type="submit"
                   onClick={createHabit}
                   {...(!habitTitle && { disabled: true })}
-                  className="mt-4 w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:border-accent hover:bg-accent hover:text-white disabled:cursor-not-allowed"
+                  className="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm font-medium text-gray-600 transition-colors hover:border-accent hover:bg-accent hover:text-white disabled:cursor-not-allowed"
                 >
                   Add Habit
                 </button>
