@@ -35,12 +35,13 @@ const Dashboard = () => {
     setLoading(true);
     const unsubscribe = onSnapshot(
       collection(db, "Users", user.uid, "Streaks"),
-      // orderBy("createdAt")
       (allDocs) => {
         let tempHabits = [];
         allDocs.docs.forEach((habit) => {
           tempHabits.push(habit.data());
         });
+        console.log(tempHabits);
+        tempHabits.sort((a, b) => new Date(b.date) - new Date(a.date));
         setUserHabits(tempHabits);
         setLoading(false);
       }
