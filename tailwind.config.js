@@ -1,4 +1,3 @@
-const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -7,19 +6,18 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "420px",
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
-        main: colors.zinc,
         accent: ({ opacityValue }) => {
           if (opacityValue !== undefined) {
             return `rgba(var(--accent), ${opacityValue})`;
           }
           return `rgb(var(--accent)`;
         },
-      },
-      screens: {
-        xs: "480px",
-        ...defaultTheme.screens,
       },
     },
   },

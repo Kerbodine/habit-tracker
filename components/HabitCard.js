@@ -8,7 +8,7 @@ export default function HabitCard({ id, title, date }) {
     (startDate.getTime() - new Date().getTime()) / (1000 * 3600 * 24 * -1); // negate date
 
   return (
-    <div className="group relative h-36 w-48 flex-none cursor-pointer rounded-lg border-2 border-gray-200 px-4 py-3 transition-all duration-300 hover:border-gray-400 hover:bg-gray-100 hover:shadow-lg">
+    <div className="group relative h-36 w-full cursor-pointer rounded-lg border-2 border-gray-200 px-4 py-3 transition-all duration-300 hover:border-gray-400 hover:bg-gray-100 hover:shadow-lg">
       <h2 className="two-line w-full text-lg font-semibold tracking-tight text-gray-700">
         {title}
       </h2>

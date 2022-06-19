@@ -30,7 +30,7 @@ export default function HabitButton() {
     <>
       <button
         onClick={openModal}
-        className="grid h-36 w-48 place-items-center rounded-lg border-2 border-dashed border-gray-200 text-2xl text-gray-600 transition-all hover:border-solid hover:border-gray-400 hover:bg-gray-100"
+        className="grid h-36 w-full place-items-center rounded-lg border-2 border-dashed border-gray-200 text-2xl text-gray-600 transition-all hover:border-solid hover:border-gray-400 hover:bg-gray-100"
       >
         <BiPlus />
       </button>
