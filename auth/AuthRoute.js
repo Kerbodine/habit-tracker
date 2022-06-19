@@ -8,7 +8,7 @@ export default function AuthRoute({ children }) {
 
   useEffect(() => {
     if (user) {
-      router.push("/dashboard");
+      router.push("/");
     }
   }, [router, user]);
 

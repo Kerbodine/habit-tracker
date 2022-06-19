@@ -18,7 +18,7 @@ const Login = () => {
 
   const googleSignIn = async () => {
     await signInWithGoogle();
-    router.push("/dashboard");
+    router.push("/");
   };
 
   const handleSubmit = async (e) => {
