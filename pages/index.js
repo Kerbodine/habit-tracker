@@ -68,7 +68,7 @@ const Dashboard = () => {
                 <AccountMenu />
               </div>
             </div>
-            <div className="h-auto w-full p-6">
+            <div className="h-[calc(100vh-64px)] w-full overflow-y-auto p-6">
               <div className="flex flex-wrap gap-4">
                 {userHabits.map((habit, i) => {
                   return (

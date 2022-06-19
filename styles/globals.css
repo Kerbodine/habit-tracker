@@ -12,3 +12,12 @@
     font-family: "Inter", sans-serif;
   }
 }
+
+.two-line {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--line-clamp, 2);
+  -webkit-box-orient: vertical;
+  word-break: var(--word-break, 'none');
+  overflow: hidden;
+  hyphens: auto;
+}
