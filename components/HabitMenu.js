@@ -9,7 +9,7 @@ export default function HabitMenu({ id }) {
   return (
     <Menu as="div" className="relative">
       <div>
-        <Menu.Button className="grid h-8 w-8 place-items-center rounded-lg text-2xl text-gray-600 transition-all hover:bg-gray-200">
+        <Menu.Button className="grid h-8 w-8 place-items-center rounded-lg border-2 border-gray-300 bg-gray-100 text-2xl text-gray-600 transition-all hover:border-gray-400 hover:bg-gray-200">
           <BiDotsVerticalRounded />
         </Menu.Button>
       </div>
@@ -22,7 +22,7 @@ export default function HabitMenu({ id }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-1.5 w-28 origin-top-right divide-gray-200 rounded-lg border-2 border-gray-200 bg-white p-1.5 shadow-md focus:outline-none">
+        <Menu.Items className="absolute right-0 z-20 mt-1.5 w-28 origin-top-right divide-gray-200 rounded-lg border-2 border-gray-200 bg-white p-1.5 shadow-md focus:outline-none">
           <Menu.Item>
             {({ active }) => (
               <div
