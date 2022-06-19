@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "../contexts/AuthContext";
 import { BiCheck, BiInfoCircle, BiLoaderAlt } from "react-icons/bi";
@@ -62,9 +62,10 @@ const ResetPassword = () => {
               <p className="flex-auto truncate">{message}</p>
             </div>
           )}
-          <Link to="/login">
-            <a className="mt-1 ml-auto flex text-sm text-gray-500 hover:underline"></a>
-            Back to login
+          <Link href="/login">
+            <a className="mt-1 ml-auto flex text-sm text-gray-500 hover:underline">
+              Back to login
+            </a>
           </Link>
           <button
             type="submit"
